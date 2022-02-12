@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f3e1d2;
+}
+
+body {
+    padding: 0 1rem;
+}
+
+.title h2 {
+    font-family: 'Great Vibes', cursive;
+    color: #9d8167;
+    text-align: center;
+    padding: 3rem 0 1rem;
+    font-size: 3rem;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    padding: .5rem;
+    margin: .5rem;
+    color: #9d8167;
+    border: 2px solid #9d8167;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: .1rem;
+    box-shadow: 2px 2px #333;
+    text-transform: capitalize;
+    letter-spacing: .1rem;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #9d8167;
+    color: #eee;
+    transition: .5s;
+}
+
+.active {
+    background-color: #9d8167;
+    color: #eee;
+}
+
+.container {
+    display: grid;
+    font-family: 'Roboto', sans-serif;
+    padding: 3rem 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-around;
+}
+
+.container .dish {
+    display: flex;
+    gap: 1rem;
+    padding: 20px;
+    /* max-width: 25rem; */
+}
+
+.dish-title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #9d8167;
+}
+
+.dish-title .dish-name {
+    text-transform: capitalize;
+}
+
+.dish-info p {
+    margin: 1rem;
+    color: #555;
+}
+
+.dish-photo {
+    object-fit: cover;
+    max-width: 250px;
+    height: 150px;
+    border: 5px solid #9d8167;
+    ;
+    border-radius: 0.5rem;
+}
+
+.container .dish .dish-info .dish-name {
+    position: relative;
+    padding-bottom: 1rem;
+    letter-spacing: .2rem;
+    font-weight: bold;
+}
+
+.container .menu-item .dish p {
+    padding: 10px;
+    color: #555;
+}
+
+.container .dish .dish-info .price {
+    padding-left: 1.5rem;
+    color: #9d8167;
+    font-weight: bold;
+}
+
+
+/* MEDIA QUERY 
+***************/
+
+@media screen and (max-width: 768px) {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-content: center;
+    }
+    body {
+        padding: 1rem;
+    }
+}
