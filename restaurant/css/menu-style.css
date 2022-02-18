@@ -3,19 +3,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #f3e1d2;
 }
 
 body {
     padding: 0 1rem;
+    background-color: #f3e1d2;
+    min-width: 100vw;
 }
 
-.title h2 {
+.header h2 {
     font-family: 'Great Vibes', cursive;
     color: #9d8167;
     text-align: center;
     padding: 3rem 0 1rem;
     font-size: 3rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-container {
@@ -48,6 +56,72 @@ body {
     color: #eee;
 }
 
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+    position: relative;
+    width: 50%;
+    height: 2rem;
+    padding: 2rem;
+    /* box-shadow: 0 0 3em rgba(0, 0, 0, 0.15); */
+}
+
+.search-bar {
+    display: flex;
+    border: 2px solid #9d8167;
+    border-radius: 50px;
+    width: 60px;
+    position: relative;
+    transition: width 300ms ease-in-out;
+    padding: .5rem;
+    background: #eee;
+}
+
+.search-bar__input {
+    flex-grow: 1;
+    border: none;
+    padding: 0 .5rem;
+    background: transparent;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 60px;
+}
+
+.search-bar__input:focus {
+    outline: 0;
+    opacity: 1;
+    cursor: initial;
+    width: calc(100% - 40px);
+}
+
+.search-bar__submit {
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    padding: .5rem;
+    background: transparent;
+    color: #9d8167;
+    height: 40px;
+    margin-left: auto;
+}
+
+.active {
+    background: #9d8167;
+    color: #eee;
+}
+
+.search-bar:focus-within {
+    width: 50%;
+    font-size: 1rem;
+}
+
 .container {
     display: grid;
     font-family: 'Roboto', sans-serif;
@@ -60,7 +134,6 @@ body {
     display: flex;
     gap: 1rem;
     padding: 20px;
-    /* max-width: 25rem; */
 }
 
 .dish-title {
@@ -117,5 +190,20 @@ body {
     }
     body {
         padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .btn-container {
+        flex-direction: column;
+    }
+    .search-bar:focus-within {
+        width: 200px;
+        font-size: 1rem;
+    }
+    .container {
+        width: 80%;
+        margin: 0;
+        padding: 0;
     }
 }

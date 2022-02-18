@@ -9,30 +9,6 @@ const menu = [{
     },
     {
         id: 2,
-        title: "diner double",
-        category: "dinner",
-        price: 13.99,
-        img: "./images/item-2.jpeg",
-        desc: `vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats `,
-    },
-    {
-        id: 3,
-        title: "godzilla milkshake",
-        category: "shakes",
-        price: 6.99,
-        img: "./images/item-3.jpeg",
-        desc: `ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral.`,
-    },
-    {
-        id: 4,
-        title: "country delight",
-        category: "breakfast",
-        price: 20.99,
-        img: "./images/item-4.jpeg",
-        desc: `Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut, `,
-    },
-    {
-        id: 5,
         title: "egg attack",
         category: "lunch",
         price: 12.99,
@@ -40,10 +16,35 @@ const menu = [{
         desc: `franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up `,
     },
     {
+        id: 3,
+        title: "diner double",
+        category: "dinner",
+        price: 13.99,
+        img: "./images/item-2.jpeg",
+        desc: `vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats `,
+    },
+    {
+        id: 4,
+        title: "godzilla milkshake",
+        category: "shakes",
+        price: 6.99,
+        img: "./images/item-3.jpeg",
+        desc: `ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral.`,
+    },
+    {
+        id: 5,
+        title: "country delight",
+        category: "breakfast",
+        price: 20.99,
+        img: "./images/item-4.jpeg",
+        desc: `Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut, `,
+    },
+
+    {
         id: 6,
         title: "oreo&reg dream",
         category: "shakes",
-        price: 18.99,
+        price: 8.99,
         img: "./images/item-6.jpeg",
         desc: `Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday`,
     },
@@ -78,22 +79,18 @@ const menu = [{
         price: 29.99,
         img: "./images/item-10.jpeg",
         desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
-    },
-
-    {
-        id: 10,
-        title: "steak dinner",
-        category: "ta7richa",
-        price: 29.99,
-        img: "./images/item-10.jpeg",
-        desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
     }
+
+
 ];
 // ***************
 
 // GLOBAL VARIABLES
 let container = document.querySelector(".container");
 let btnContainer = document.querySelector(".btn-container");
+let dish = document.getElementsByClassName("dish");
+console.log(dish)
+
 //****************
 
 // DISPLAYING ELEMENTS
@@ -165,7 +162,44 @@ function classeactive() {
 }
 //******************
 
+
+
+// SEARCHBAR
+function search() {
+    const searchBar = document.getElementById('searchBar');
+
+    searchBar.addEventListener('keyup', (e) => {
+        const searchString = e.target.value.toLowerCase();
+        const filteredItems = menu.filter(element => {
+
+            return element.title.includes(searchString) || element.category.includes(searchString);
+        });
+        displayItems(filteredItems);
+    });
+}
+// ********************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 displayItems(menu);
 displaybuttons();
 filter();
 classeactive();
+search();
