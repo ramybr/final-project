@@ -2,11 +2,75 @@ const init = function(e) {
     let order = document.querySelector(".order");
     let totalPrice = localStorage.getItem('total-price');
     let totalItems = localStorage.getItem('total-items');
-    console.log(localStorage)
-    order.innerHTML = `You have bought ${totalItems} items for a total of ${totalPrice} dt`
+
+
+    if (localStorage.length == 0) {
+        order.innerHTML = `You don't have any items yet ! `
+    } else {
+
+        order.innerHTML = `${totalItems} items for a total of ${totalPrice} dt`
+    }
+}
+
+let container = document.querySelector('.container');
+
+function recieve() {
+    // RECIEVE OBJECT 
+    // ***************
+    document.addEventListener('DOMContentLoaded', () => {
+            let cartObjStr = localStorage.getItem('tempObj')
+            let cartObj = JSON.parse(cartObjStr);
+            // console.log(cartObj)
+            // console.log(dishId)
+
+            // RECIEVE ARRAY OF ID
+            // ********************
+            let dishesIdString = localStorage.getItem('dishes-id-array')
+            let dishesIdArray = JSON.parse(dishesIdString);
+            console.log(dishesIdArray)
+
+
+            for (i = 0; i < dishesIdArray.length; i++) {
+
+                let toDisplay = cartObj.filter((element) => element.id == dishesIdArray[i])
+                    // console.log(toDisplay)
+                    // toDisplay = toDisplay.concat(toDisplay)
+                    // tempDishes.push(...toDisplay)
+                    // tempDishes = [...toDisplay, ...toDisplay];
+                    // console.log(tempDishes);
+                    // let displayAll = toDisplay.concat(toDisplay)
+
+                console.log(toDisplay)
+                let display = toDisplay.map((element) => {
+
+                    return `<div class="order">
+
+            <h3>dish :${element.title}</h3><img src="${element.img}"/>
+             </div>`
+                }).join("");
+                container.innerHTML = display;
+            }
+
+
+
+        }
+
+    )
 }
 
 
+
+
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
+
     init();
+
+    // localStorage.clear();
 });
+
+
+
+recieve();

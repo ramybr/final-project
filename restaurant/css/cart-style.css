@@ -19,3 +19,33 @@ h1 {
     font-size: 3rem;
     text-transform: capitalize;
 }
+
+.container .dish {
+    display: flex;
+    gap: 1rem;
+    padding: 20px;
+}
+
+.dish-title {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #9d8167;
+}
+
+.dish-title .dish-name {
+    text-transform: capitalize;
+}
+
+.dish-info p {
+    margin: 1rem;
+    color: #555;
+}
+
+.dish-photo {
+    object-fit: cover;
+    max-width: 250px;
+    height: 150px;
+    border: 5px solid #9d8167;
+    ;
+    border-radius: 0.5rem;
+}
