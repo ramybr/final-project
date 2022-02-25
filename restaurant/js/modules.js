@@ -104,12 +104,12 @@ function displayItems(array) {
             return `<div class="dish">
           <img src=${element.img} alt="9" class="dish-photo">
           <div class="dish-info">
-              <div class="dish-title"><span class="dish-name">${element.title}</span><span class="price">${element.price} </span> </span></div>
+              <div class="dish-title"><span class="dish-name">${element.title}</span><div class=price-info><span class="price">${element.price} </span> <span class="dt">dt</span></div></div>
               <p> ${element.desc}</p>    
           <input type="button" value="-" class="cart-btn moins" id="moins" />
           <input type="button" size="1" value="0" id="count counter" class="counter" />
           <input type="button" value="+" class="cart-btn plus" id="plus" />
-          <input  class="cart-btn add" type="button" value="Add To Cart" id="add"/>
+          <input  class="cart-btn add" type="button" value="Add To Your Order" id="add"/>
            
           </div>
           </div>`;
@@ -258,34 +258,33 @@ function addlist_header() {
     let alladd = document.getElementsByClassName("add");
     let counts = document.getElementsByClassName("counter");
     let totals = document.getElementsByClassName("totalprice");
-    let allcards = document.getElementsByClassName("dish");
+    // let allcards = document.getElementsByClassName("dish");
     let tempCount = 0;
     let tempPrice = 0;
-
+    let alert = document.querySelector('.icon-alert');
     let arrayOfId = [];
     for (let i = 0; i < alladd.length; i++) {
         let add = alladd[i];
         let count = counts[i];
         let total = totals[i];
-        add.addEventListener("click", function() {
 
+        add.addEventListener("click", function() {
             tempCount = tempCount + +count.value;
             tempPrice = tempPrice + tempToPay;
             console.log(count.value);
             console.log(tempPrice);
-            document.getElementById("total").innerHTML = tempCount;
-            document.getElementById("price").innerHTML = tempPrice;
-            // if (count.value != 0) {
-            //     let element = allcards[i];
-            //     cartElement.append(element);
-            //     console.log(cartElement)
-            // }
+            if (count.value != 0) {
+                for (j = 0; j < count.value; j++) {
 
-            arrayOfId.push(i + 1);
-            arrayOfIdStr = JSON.stringify(arrayOfId);
-            console.log(arrayOfId);
-            localStorage.setItem("dishes-id-array", arrayOfIdStr);
-            count.value = 0;
+                    arrayOfId.push(i + 1);
+                }
+                arrayOfIdStr = JSON.stringify(arrayOfId);
+                console.log(arrayOfId);
+                localStorage.setItem("dishes-id-array", arrayOfIdStr);
+                count.value = 0;
+                alert.style.display = "block"
+                alert.innerText = (`${arrayOfId.length}`)
+            }
         });
 
 

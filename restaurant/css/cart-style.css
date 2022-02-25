@@ -15,37 +15,75 @@ h1 {
     font-family: 'Great Vibes', cursive;
     color: #9d8167;
     text-align: center;
-    padding: 3rem 0 1rem;
+    margin: 2rem auto;
     font-size: 3rem;
     text-transform: capitalize;
 }
 
-.container .dish {
-    display: flex;
+.welcome,
+.goodbye {
+    font-family: 'Roboto', sans-serif;
+    /* color: #9d8167; */
+    font-size: 1.2rem;
+    margin: 1rem;
+}
+
+.goodbye {
+    text-align: end;
+}
+
+.container {
+    display: grid;
+    font-family: 'Roboto', sans-serif;
+    padding: 2rem;
+    background: rgba(157, 129, 103, 0.5);
+    place-items: center;
+    margin-bottom: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.dish {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: initial;
     gap: 1rem;
     padding: 20px;
+    width: 80%;
+    border-bottom: solid 1px #697268;
 }
 
-.dish-title {
+.dish-info {
     display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #9d8167;
+    align-items: center;
 }
 
-.dish-title .dish-name {
+.dish img {
+    width: 50px;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.dish .item-price {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.total {
+    display: flex;
+    justify-content: end;
+    width: 90%;
+    font-family: 'Roboto', sans-serif;
+    color: #9d8167;
+    height: 2rem;
+}
+
+.dish-info span {
+    font-family: 'Roboto', sans-serif;
     text-transform: capitalize;
+    letter-spacing: .1rem;
 }
 
-.dish-info p {
-    margin: 1rem;
-    color: #555;
-}
-
-.dish-photo {
-    object-fit: cover;
-    max-width: 250px;
-    height: 150px;
-    border: 5px solid #9d8167;
-    ;
-    border-radius: 0.5rem;
+.display-cart {
+    padding: 1rem;
 }
