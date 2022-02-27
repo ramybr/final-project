@@ -189,6 +189,7 @@ function search() {
 // ********************
 
 let plus = document.getElementsByClassName("plus");
+console.log(plus.length)
 let moin = document.getElementsByClassName("moins");
 let counts = document.getElementsByClassName("counter");
 let prices = document.getElementsByClassName("price");

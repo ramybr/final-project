@@ -15,6 +15,27 @@ let order = document.querySelector(".order");
 let welcome = document.querySelector(".welcome");
 let goodbye = document.querySelector(".goodbye");
 
+let testing = document.getElementsByClassName("test-button")
+let testing2 = document.querySelector(".test-button2")
+let testing3 = document.getElementById('test')
+console.log(testing)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -67,6 +88,7 @@ function recieve() {
                 <div class="dish">
             <div class="dish-info">
             <img src="${element.img}"/><span>${element.title}</span>
+            <input type="button" class="btn remove" id="remove" value="Remove"/>
             </div>
             <div class="item-price">        
             <span>${element.price} Dt</span>
@@ -84,14 +106,29 @@ function recieve() {
 
 
 
-
     });
 }
 
+
+
+
+function removeItem() {
+    let remove = document.getElementsByClassName('remove')
+    console.log(remove)
+
+    for (let i = 0; i < remove.length; i++) {
+        let removeCard = remove[i];
+        removeCard.addEventListener("click", () => {
+            console.log('test')
+        })
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", function() {
     init();
-
     // localStorage.clear();
 });
 
 recieve();
+removeItem();
