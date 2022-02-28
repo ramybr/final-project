@@ -20,16 +20,20 @@ h1 {
     text-transform: capitalize;
 }
 
+.welcome {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+}
+
 .welcome,
 .goodbye {
-    font-family: 'Roboto', sans-serif;
-    /* color: #9d8167; */
-    font-size: 1.2rem;
-    margin: 1rem;
+    font-family: 'Great Vibes', cursive;
+    margin: auto 1rem;
 }
 
 .goodbye {
     text-align: end;
+    font-size: 2rem;
 }
 
 .container {
@@ -44,7 +48,7 @@ h1 {
 
 .dish {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 0.5fr 2fr 1fr;
     place-items: initial;
     gap: 1rem;
     padding: 20px;
@@ -61,6 +65,7 @@ h1 {
     width: 50px;
     border-radius: 5px;
     margin-right: 1rem;
+    border: 2px solid #9d8167;
 }
 
 .dish .item-price {
@@ -76,6 +81,7 @@ h1 {
     font-family: 'Roboto', sans-serif;
     color: #9d8167;
     height: 2rem;
+    font-weight: 900;
 }
 
 .dish-info span {
@@ -86,4 +92,23 @@ h1 {
 
 .display-cart {
     padding: 1rem;
+}
+
+.btn {
+    padding: .5rem;
+    margin: .5rem;
+    color: #9d8167;
+    border: 2px solid #9d8167;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: .1rem;
+    box-shadow: 2px 2px #333;
+    text-transform: capitalize;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #9d8167;
+    color: #eee;
+    transition: .5s;
 }

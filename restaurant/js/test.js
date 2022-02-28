@@ -2,7 +2,7 @@ const init = function(e) {
     let order = document.querySelector(".order");
     // 
     if (localStorage.length == 0) {
-        order.innerHTML = `You don't have any items yet ! `;
+        container.innerHTML = `You don't have any items yet ! `;
     } else {
         welcome.innerHTML = `<span>You have ordered :</span>`;
         goodbye.innerHTML = `<span>Thanks for your visit, we hope to see you again soon in our restaurant...</span>`
@@ -15,10 +15,10 @@ let order = document.querySelector(".order");
 let welcome = document.querySelector(".welcome");
 let goodbye = document.querySelector(".goodbye");
 
-let testing = document.getElementsByClassName("test-button")
-let testing2 = document.querySelector(".test-button2")
-let testing3 = document.getElementById('test')
-console.log(testing)
+// let testing = document.getElementsByClassName("test-button")
+// let testing2 = document.querySelector(".test-button2")
+// let testing3 = document.getElementById('test')
+// console.log(testing)
 
 
 
@@ -77,31 +77,35 @@ function recieve() {
         let total = 0;
         tempfiltredarrayofdishes.forEach(dish => {
 
-            total += dish.price
-            console.log(total)
+                total += (dish.price)
 
-        })
+                console.log(total)
+
+
+            }
+
+        )
 
         let display = tempfiltredarrayofdishes
             .map((element) => {
                 return `
                 <div class="dish">
+                <input type="button" class="btn remove" id="remove" value="Remove" onclick="removeItem(this)"/>
             <div class="dish-info">
             <img src="${element.img}"/><span>${element.title}</span>
-            <input type="button" class="btn remove" id="remove" value="Remove"/>
             </div>
             <div class="item-price">        
-            <span>${element.price} Dt</span>
+            <span  id='element-price'>${element.price} Dt</span>
             </div> 
             </div> `;
+
             })
             .join("");
-
-        let totalDisplay = ` <span>TOTAL : ${total} Dt</span>`
+        let totalDisplay = ` <span>TOTAL :</span> <span id="total-price">${total.toFixed(2)} Dt</span>`
 
         container.innerHTML = display;
         totalDiv.innerHTML = totalDisplay;
-        // totalDiv.style.backgroundColor = "yellow"
+
 
 
 
@@ -111,17 +115,29 @@ function recieve() {
 
 
 
+function removeItem(elements) {
+    let element = elements;
+    let elementPrice = (element.nextElementSibling).nextElementSibling;
+    let totalPrice = document.getElementById('total-price');
+    let removeBtn = document.getElementsByClassName('remove');
+    console.log(removeBtn.length)
 
-function removeItem() {
-    let remove = document.getElementsByClassName('remove')
-    console.log(remove)
 
-    for (let i = 0; i < remove.length; i++) {
-        let removeCard = remove[i];
-        removeCard.addEventListener("click", () => {
-            console.log('test')
-        })
+    totalPrice.innerHTML = `${(parseFloat(totalPrice.innerHTML.replace('Dt', '') - +elementPrice.innerText.replace('Dt', ''))).toFixed(2)} Dt`;
+
+    element.parentNode.remove();
+    if (removeBtn.length === 0) {
+        container.innerHTML = `You don't have any items yet ! `
+        welcome.innerHTML = ``;
+        goodbye.innerHTML = ``;
+
+
+
     }
+
+
+
+
 }
 
 
@@ -131,4 +147,3 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 recieve();
-removeItem();
